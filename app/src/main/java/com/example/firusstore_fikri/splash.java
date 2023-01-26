@@ -10,24 +10,34 @@ import android.view.View;
 import android.widget.ImageView;
 
 public class splash extends AppCompatActivity {
-    private int waktu_loading=4000;
-
+//    private int waktu_loading=4000;
+    ImageView logo;
     //4000=4 detik
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_splash);
-        new Handler().postDelayed(new Runnable() {
+        logo = findViewById(R.id.imageView10);
+        logo.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void run() {
-                //setelah loading maka akan langsung berpindah ke home activity
+            public void onClick(View view) {
                 Intent i = new Intent(splash.this, login.class);
                 startActivity(i);
-                finish();
             }
+        });
 
-        },waktu_loading);
+
+//        new Handler().postDelayed(new Runnable() {
+//            @Override
+//            public void run() {
+//                //setelah loading maka akan langsung berpindah ke home activity
+//                Intent i = new Intent(splash.this, login.class);
+//                startActivity(i);
+//                finish();
+//            }
+//
+//        },waktu_loading);
     }
 
 }
